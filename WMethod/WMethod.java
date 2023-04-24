@@ -381,11 +381,12 @@ public class WMethod{
      Vector <String> tests=generateTests(transitionCover, w); // Generate tests.
      Utilities.printAllTestCases(tests); // Print tests.
      
+     
      // TODO: 	Write the necessary code to iterate through all test cases and run them against
      // 		the FSM using the Utilities.runFSM() method. 
      //
      // Example use of the Utilities.runFSM() method
-     // Utilities.runFSM(FSM, 1, "a a b a b", " ");
+      Utilities.runFSM(FSM, 1, tests, " ");
      
    }// End of main()
    
