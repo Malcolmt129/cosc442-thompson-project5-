@@ -381,7 +381,22 @@ public class WMethod{
      Vector <String> tests=generateTests(transitionCover, w); // Generate tests.
      Utilities.printAllTestCases(tests); // Print tests.
      
-    Utilities.runFSM(FSM, 1, tests, " ");
+     for (int i = 0; i < tests.size(); i++) {
+    	 
+    	 System.out.println();
+    	 System.out.println("@Test");
+    	 System.out.println("public void testcase" +  i + "() { ");
+    	 System.out.println();
+    	 
+    	 if (Utilities.runFSM(FSM, 1, tests.elementAt(i), " ").contains("yes")) {
+    		 System.out.println(" assertTrue(jb.bondRegex(\"" + tests.elementAt(i)+ "\"));" );
+    	 } else {
+    		 System.out.println(" assertFalse(jb.bondRegex(\"" + tests.elementAt(i) + "\"));" );
+    	 }
+    	 System.out.println("}");
+     }
+     
+     
      
    }// End of main()
    
